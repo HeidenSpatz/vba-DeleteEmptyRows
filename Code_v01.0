@@ -1,0 +1,15 @@
+Sub DeleteEmptyRows()
+'From Bottom to Top
+'Delete Empty Rows
+
+
+	Dim LR As Long
+	Dim i As Integer
+
+	LR = Cells.Find(What:="*", SearchDirection:=xlPrevious, SearchOrder:=xlByRows).Row
+
+	For i = LR To 1 Step -1
+		If (Range("B" & i).Value) = "" Then Rows(i).Delete
+	Next i
+
+End Sub
